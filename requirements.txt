@@ -1,0 +1,13 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    user_input = request.json.get('message')
+    # Here would be the logic to generate a health-related response.
+    response = f"AI response to: {user_input}"
+    return jsonify({'response': response})
+
+if __name__ == '__main__':
+    app.run(debug=True)
